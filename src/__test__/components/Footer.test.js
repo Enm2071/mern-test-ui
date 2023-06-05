@@ -5,16 +5,16 @@ import Footer from '../../components/Footer';
 
 describe('<Footer />', () => {
   const footer = mount(<Footer />);
-  test('Render del componente Footer', () => {
+  test('Render Footer', () => {
     expect(footer.length).toEqual(1);
   });
-  test('render del titulo', () => {
+  test('render title', () => {
     expect(footer.find('.Footer-title').text()).toEqual('Ernesto Nunez Marrero');
   });
 });
 
 describe('<Footer /> snapshoot', () => {
-  test('Comprobar la UI del componente Footer', () => {
+  test('Check the UI of the Footer component.', () => {
     const footer = create(<Footer />);
     expect(footer.toJSON()).toMatchSnapshot();
   });

@@ -9,6 +9,7 @@ import reducer from './reducers';
 const store = configureStore({
   reducer: reducer,
   preloadedState: initialState,
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,10 +1,14 @@
-import React from "react";
-import useLogIn from "../../hooks/useLogIn";
+import React, { useEffect } from "react";
+import useLogIn from "../../hooks/useLogin";
 import {
     useDispatch,
     useSelector,
 } from "react-redux";
 import actionTypes from "../../actions/actionTypes";
+import {
+    useNavigate,
+} from "react-router-dom";
+
 import "./LogIn.style.css";
 
 const LogIn = () => {
@@ -17,6 +21,9 @@ const LogIn = () => {
     } = useLogIn();
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state);
+    const navigate = useNavigate();
+
+
     const onChangeHandler = onChange => event => {
         onChange(event.target.value);
     };
@@ -32,6 +39,7 @@ const LogIn = () => {
                 type: actionTypes.SIGN_IN_SUCCESS,
                 payload: response,
             });
+            navigate("/");
         } catch (error) {
             dispatch({
                 type: actionTypes.SIGN_IN_FAILURE,
@@ -39,7 +47,6 @@ const LogIn = () => {
             });
         }
     };
-
 
     return (
         <div className="Login">

@@ -17,7 +17,7 @@ describe('<Header />', () => {
 });
 
 describe('<Header /> snapshoot', () => {
-  test('Comprobar la UI del componente Header', () => {
+  test('Check the UI of the Header component.', () => {
     const header = create(<ProviderMock><Header /></ProviderMock>);
     expect(header.toJSON()).toMatchSnapshot();
   });

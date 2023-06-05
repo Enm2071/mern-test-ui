@@ -14,7 +14,8 @@ const useLogin = () => {
                 email,
                 password,
             });
-            const { data } = response;
+            const { data } = response;           
+            localStorage.setItem("token", data.token);
             return data;
         } catch (error) {
             setError(error.message);
@@ -23,7 +24,14 @@ const useLogin = () => {
         }
     };
 
-    return { loading, login, setEmail, email, setPassword, password, error };
+    const logOut = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            localStorage.removeItem("token");
+        }
+    };
+
+    return { loading, login, setEmail, email, setPassword, password, error, logOut };
 };
 
 export default useLogin;

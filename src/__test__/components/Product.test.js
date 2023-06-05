@@ -10,7 +10,7 @@ describe('<Product />', () => {
     expect(product.length).toEqual(1);
   });
 
-  test('Comprobar el boton de comprar', () => {
+  test('Check add to cart btn', () => {
     const handleAddToCart = jest.fn();
     const wrapper = mount(<ProviderMock><Product product={ProductMock} handleAddToCart={handleAddToCart} /></ProviderMock>);
     wrapper.find('button').simulate('click');

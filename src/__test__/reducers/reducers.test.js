@@ -8,7 +8,8 @@ describe('reducers', () => {
 
   test('ADD_TO_CART', () => {
     const initialState = {
-      cart: [],
+      cart: [],  
+      totalItems: 0,
     };
     const payload = ProductMock;
     const action = {
@@ -16,8 +17,11 @@ describe('reducers', () => {
       payload,
     };
     const expectedState = {
-      cart: [payload],
-    };
+      cart: [
+        ProductMock,
+      ],
+      totalItems: 1,
+    }
     expect(reducer(initialState, action)).toEqual(expectedState);
   });
 
@@ -32,6 +36,7 @@ describe('reducers', () => {
     };
     const expectedState = {
       cart: [],
+      totalItems: 0,
     };
     expect(reducer(initialState, action)).toEqual(expectedState);
   });

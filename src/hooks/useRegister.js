@@ -17,7 +17,6 @@ const useRegister = () => {
                 password,
             });
             const { data } = response;
-            localStorage.setItem("token", data.token);
             return data;
         } catch (error) {
             setError(error.message);

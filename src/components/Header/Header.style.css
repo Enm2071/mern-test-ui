@@ -54,4 +54,24 @@ input:focus::placeholder {
 .Container {
     display: flex;
     justify-content: space-between;
+    column-gap: 10px;
+}
+
+.vertical-bar {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-bar::before {
+    content: '';
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to right, #33b1ff, #0059b3);
+    margin-right: 10px;
+}
+
+.Orders {
+    background: linear-gradient(to right, #33b1ff, #0059b3);
+    -webkit-background-clip: text;
+    font-weight: 400;
 }
